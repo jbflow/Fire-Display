@@ -4,9 +4,6 @@
 Python script combined with a PureData patch the facilitates writing to the display of an Akai Fire MIDI controller.
 Written in Python 2.7. Usage instructions are contained within the PureData patch. 
 
-
-![image](https://user-images.githubusercontent.com/60370472/78458685-1d394880-76ab-11ea-83d5-ea9739fdb6d1.png)
-
 Requires Python Pillow package - pip install pillow
 
 This was written for a client who is doing some stuff with an Akai Fire to create a groove box, I've shared it here with his permission.
