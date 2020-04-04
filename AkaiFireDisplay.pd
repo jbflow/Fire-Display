@@ -1,0 +1,185 @@
+#N canvas 500 181 1240 644 12;
+#N canvas 641 178 1196 696 Make_Disp_Syx 1;
+#X obj 592 337 netsend;
+#X floatatom 594 399 5 0 0 0 - - -;
+#X msg 258 47 disconnect;
+#X obj 685 96 netreceive 3001;
+#X obj 685 139 route c;
+#X text 744 167 << Sysex comes out of right outlet;
+#X text 804 93 << Messages from Python come in here (includes connect
+\, disconnect and SysEx;
+#X text 659 401 << Shows how many connections (1 or 0);
+#X text 648 336 << This sends messages to python with a send message
+;
+#X text 343 44 << This is just to manually disconnect if needed \,
+if there is a crash with the python and the connection is still showing
+as a 1 below \, use this to disconnect.;
+#X obj 95 176 inlet;
+#X obj 137 176 inlet;
+#X obj 179 176 inlet;
+#X obj 263 176 inlet;
+#X obj 221 176 inlet;
+#X obj 53 176 inlet;
+#X obj 305 176 inlet;
+#X obj 730 193 outlet;
+#X text 653 235 << connect/disconnect comes out the left outlet \,
+to connect to the python script for sending the text messages.;
+#N canvas 240 321 1032 447 MessageConstructor 0;
+#X msg 368 188 symbol "14";
+#X obj 32 398 list trim;
+#X obj 32 365 list prepend send;
+#X text 539 224 << This sets the font size ("arial" \, "verdana" \,
+or "times");
+#X text 201 288 << This packs the message into a list;
+#X text 195 363 << This prepends the word send;
+#X text 102 396 << This removes the word list;
+#X obj 31 106 inlet;
+#X obj 89 74 inlet;
+#X obj 31 461 outlet;
+#X msg 384 222 symbol "arial";
+#X text 520 187 << This sets the font size ("14" - "16" recommend)
+;
+#X text 480 155 << This sets the x alignment ("left" \, "centre" or
+"right");
+#X text 508 257 << This sets if the colour values are negative ("true"
+= black on white \, "false" = white on black);
+#X msg 390 257 symbol "false";
+#X obj 107 99 inlet;
+#X obj 142 144 inlet;
+#X obj 130 121 inlet;
+#X text 434 125 << This sets the line;
+#X obj 159 166 inlet;
+#X obj 195 60 inlet;
+#X text 30 4 Use this message constructor to create messages using
+a standard format. This means once you decided on a format and set
+it in here you only need to change the text to be displayed \, and
+the line.;
+#X msg 356 157 symbol "left";
+#X obj 89 286 pack s s s s s;
+#X msg 347 126 "1";
+#X obj 270 89 delay 5;
+#X obj 28 333 list store;
+#X obj 134 447 print;
+#X msg 59 192 bang;
+#X connect 0 0 23 2;
+#X connect 1 0 9 0;
+#X connect 1 0 27 0;
+#X connect 2 0 1 0;
+#X connect 7 0 26 0;
+#X connect 8 0 23 0;
+#X connect 10 0 23 3;
+#X connect 14 0 23 4;
+#X connect 15 0 23 1;
+#X connect 15 0 28 0;
+#X connect 16 0 23 3;
+#X connect 16 0 28 0;
+#X connect 17 0 23 2;
+#X connect 17 0 28 0;
+#X connect 19 0 23 4;
+#X connect 19 0 28 0;
+#X connect 20 0 22 0;
+#X connect 20 0 0 0;
+#X connect 20 0 10 0;
+#X connect 20 0 14 0;
+#X connect 20 0 25 0;
+#X connect 22 0 23 1;
+#X connect 23 0 26 1;
+#X connect 24 0 23 0;
+#X connect 25 0 24 0;
+#X connect 26 0 2 0;
+#X connect 28 0 23 0;
+#X coords 0 0 1 1 85 60 0;
+#X restore 108 227 pd MessageConstructor;
+#X msg 60 310 send "example message" "1" "left" "14" "arial" "false"
+;
+#X text 47 344 ^^^ Here is an example message that will set the phrase
+"example message" \, on line "1" \, aligned "left" \, "size" "14" \,
+type "arial" and negative "false" Although there is a message constructor
+above that will build the messages automatically;
+#X obj 577 216 inlet;
+#X msg 575 262 send "clear";
+#X connect 0 0 1 0;
+#X connect 2 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 0 0;
+#X connect 4 1 17 0;
+#X connect 10 0 19 1;
+#X connect 11 0 19 2;
+#X connect 12 0 19 3;
+#X connect 13 0 19 5;
+#X connect 14 0 19 4;
+#X connect 15 0 19 0;
+#X connect 16 0 19 6;
+#X connect 19 0 0 0;
+#X connect 20 0 0 0;
+#X connect 22 0 23 0;
+#X connect 23 0 0 0;
+#X restore 55 406 pd Make_Disp_Syx;
+#X obj 271 338 loadbang;
+#X obj 56 599 print tcp;
+#X text 134 599 << Just for testing \, delete when finished;
+#X text 198 187 << Send a text message in like this;
+#X text 362 526 << SysEx comes out here;
+#X text 672 44 inlet 1 sets the line like this >;
+#X text 637 67 inlet 2 sets the alignment like this >;
+#X text 637 91 inlet 3 sets the font size like this >;
+#X text 651 143 inlet 4 sets if negative like this >;
+#X text 637 116 inlet 4 sets the type face like this >;
+#X msg 914 91 symbol "14";
+#X msg 914 44 symbol "1";
+#X text 207 22 Instructions:;
+#X text 764 16 Arguments:;
+#X msg 705 434 1;
+#X obj 85 228 s start_counter;
+#X obj 706 400 r start_counter;
+#X msg 273 316 bang;
+#X text 319 318 < resets the defaults;
+#X obj 509 605 midiout;
+#X obj 705 464 metro 9000;
+#X text 217 218 << starts the counter;
+#X text 804 428 This is a counter that will send the sysex message
+below \, every 9 seconds \, this will prevent the screen from going
+black \, which will happen after 10 seconds;
+#X text 54 49 This patcher contains the subpatches needed to communicate
+with the python script. It allows you to send text and format it for
+displaying on the screen. Default formattings are contained within
+the MessageConstructor inside Make_Disp_Syx. These can be changed \,
+and also temporarily overwritten before reverting back to the defaults.
+The messages must all be sent as symbols \, encapsulated between "
+" \, Note ' ' will not work \, it must be double quotes.;
+#X msg 914 115 symbol "arial" "verdana" or "times";
+#X msg 914 141 symbol "true" or "false";
+#X msg 914 67 symbol "left";
+#X text 635 187 **Please note \, arguments must be formatted exactly
+as above.;
+#X msg 704 499 240 71 127 67 14 0 6 0 0 0 0 0 0 247;
+#X msg 612 564 0;
+#X msg 145 323 symbol "false";
+#X msg 95 279 symbol "centre";
+#X text 217 407 < The extra inputs can be used to over ride the default
+format inside the message consructor \, just send it a symbol message
+(shown top right). Sending a bang to the last inlet will reset them
+to default.;
+#X text 240 270 < Examples of temporary messages \, look inside sub
+patchers for more details.;
+#X msg 19 186 list "clear";
+#X msg 249 375 bang;
+#X text 285 376 < This clears the display;
+#X msg 72 258 symbol "4";
+#X msg 110 301 symbol "14";
+#X connect 0 0 2 0;
+#X connect 0 0 20 0;
+#X connect 1 0 0 6;
+#X connect 15 0 21 0;
+#X connect 17 0 15 0;
+#X connect 18 0 0 6;
+#X connect 21 0 29 0;
+#X connect 29 0 20 0;
+#X connect 30 0 20 1;
+#X connect 31 0 0 5;
+#X connect 32 0 0 2;
+#X connect 35 0 0 0;
+#X connect 35 0 16 0;
+#X connect 36 0 0 7;
+#X connect 38 0 0 1;
+#X connect 39 0 0 3;
