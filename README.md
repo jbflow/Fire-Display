@@ -12,6 +12,12 @@ Credit for this script goes to Paul Curtis from Segger, without whom I would hav
 
 He first decoded the strange layout of the display and SysEx message format and documented this extensively in his blog. The magic is in his original functions.
 
+
+Link to the blog is here:
+
+
+https://blog.segger.com/decoding-the-akai-fire-part-3/
+
 I have translated them into Python and built a script around this to handle arguments so that formatted text can be output on the screen.
 
 Currently only MacOS.
