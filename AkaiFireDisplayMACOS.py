@@ -4,7 +4,7 @@ and his extensive blog where he documents his process. Both the PlotPixel and Ge
 converted into Python from his original code, without which the task of writing this script would have been considerably
 more difficult. Due to the technical nature of this script, and the lack of intensive testing - no warranty is given
 or implied, it is distributed freely to anyone that can make use of it. Any questions relating to this script can be
-directed to josh.flowstate@gmail.com. CC 4.0 Share Alike"""
+directed to Josh from Flowstate. CC 4.0 Share Alike"""
 
 #######################################################################################################################
 # Import
