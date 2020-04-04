@@ -8,7 +8,7 @@ This was written for a client who is doing some stuff with an Akai Fire to creat
 
 Credit for this script goes to Paul Curtis from Segger, without whom I would have had a considerable ammount more work to do.
 
-He first decoded the strange layout of the display and SysEx message format and documented this extensively in his blog. The magis is in his original functions.
+He first decoded the strange layout of the display and SysEx message format and documented this extensively in his blog. The magic is in his original functions.
 
 I have translated them into Python and built a script around this to handle arguments so that formatted text can be output on the screen.
 
