@@ -1,4 +1,6 @@
 # Fire-Display
+
+
 Python script combined with a PureData patch the facilitates writing to the display of an Akai Fire MIDI controller.
 Written in Python 2.7. Usage instructions are contained within the PureData patch. 
 
@@ -16,5 +18,5 @@ Currently only MacOS.
 
 To Do:
 
-Error Handling
-Different OS Handling
+Potentially some more error Handling
+Different OS Handling for paths
